@@ -1,0 +1,85 @@
+let mapleader=" "
+set which-key
+set timeoutlen=5000
+set ignorecase smartcase
+set showmode
+set scrolloff=5
+set history=1000
+set surround
+set incsearch
+set relativenumber
+set number
+set easymotion
+set sneak
+
+"" Goto
+map gs <Action>(GotoSuperMethod)
+map gT <Action>(GotoTypeDeclaration)
+map gr <Action>(GotoRelated)
+map gt <Action>(GotoTest)
+map gI <Action>(GotoImplementation)
+
+
+"" Code related
+map <leader>cr <Action>(RenameElement)
+map <leader>ca <Action>(ShowIntentionActions)
+map <leader>cf <Action>(ReformatCode)
+
+"" Generate
+map <leader>go <Action>(Generate)
+map <leader>gg <Action>(GenerateGetter)
+map <leader>gs <Action>(GenerateSetter)
+
+"Extract
+map <leader>xc <Action>(ExtractClass)
+map <leader>xm <Action>(ExtractMethod)
+map <leader>xv <Action>(IntroduceVariable)
+
+"" Fold
+map zm <Action>(CollapseAllRegions)
+map zc <Action>(CollapseBlock)
+map zo <Action>(ExpandAllToLevel1)
+
+map <C-n> <Action>(List-selectNextRow)
+map <C-p> <Action>(List-selectPreviousRow)
+
+""Buffer
+map <leader>bd <Action>(CloseContent)
+map <leader>bo <Action>(CloseAllEditorsButActive)
+map <leader>bD <Action>($Delete)
+
+"" Navigation
+map <S-h> <Action>(PreviousTab)
+map <S-l> <Action>(NextTab)
+
+"" Next
+map ]e <Action>(GotoNextError)
+map [e <Action>(GotoPreviousError)
+
+"" File
+map <leader>fr <Action>(RecentFiles)
+map <leader>fl <Action>(RecentLocations)
+map <leader>fU <Action>(FindUsages)
+map <leader>fnc <Action>(NewClass)
+
+"" Search
+map <leader>se <Action>(SearchEverywhere)
+
+""Window
+map <leader>wh <Action>(HideActiveWindow)
+map <leader>ww <Action>(NextSplitter)
+map <leader>wp <Action>(PreviousEditorTab)
+
+""Git related
+map <leader><leader>gb <Action>(Annotate)
+map <leader><leader>ga <Action>(Git.Add)
+map <leader><leader>gp <Action>(Vcs.Push)
+
+""Test
+map <leader>tr <Action>(RunClass)
+
+""Debug
+map <leader>dr <Action>(DebugClass)
+map <leader>db <Action>(ToggleLineBreakpoint)
+
+map <leader><leader>sv <Action>(IdeaVim.ReloadVimRc.reload)
