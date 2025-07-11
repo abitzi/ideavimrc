@@ -1,4 +1,5 @@
 let mapleader=" "
+set clipboard+=unnamed
 set which-key
 set timeoutlen=5000
 set ignorecase smartcase
@@ -10,10 +11,11 @@ set incsearch
 set relativenumber
 set number
 set easymotion
+set NERDTree
 set sneak
 
 "" Goto
-map gs <Action>(GotoSuperMethod)
+map gs <Action>("GotoSuperMethod")
 map gT <Action>(GotoTypeDeclaration)
 map gr <Action>(GotoRelated)
 map gt <Action>(GotoTest)
@@ -24,7 +26,10 @@ map gI <Action>(GotoImplementation)
 map <leader>cr <Action>(RenameElement)
 map <leader>ca <Action>(ShowIntentionActions)
 map <leader>cf <Action>(ReformatCode)
+map <leader>gsa <Action>(SurroundWith)
 
+"" Paste
+map <S-p> <Action>(PasteMultiple)
 "" Generate
 map <leader>go <Action>(Generate)
 map <leader>gg <Action>(GenerateGetter)
@@ -40,9 +45,6 @@ map zm <Action>(CollapseAllRegions)
 map zc <Action>(CollapseBlock)
 map zo <Action>(ExpandAllToLevel1)
 
-map <C-n> <Action>(List-selectNextRow)
-map <C-p> <Action>(List-selectPreviousRow)
-
 ""Buffer
 map <leader>bd <Action>(CloseContent)
 map <leader>bo <Action>(CloseAllEditorsButActive)
@@ -55,15 +57,33 @@ map <S-l> <Action>(NextTab)
 "" Next
 map ]e <Action>(GotoNextError)
 map [e <Action>(GotoPreviousError)
+map ]m <Action>(MethodDown)
+map [m <Action>(MethodUp)
+map ]c <Action>(VcsShowNextChangeMarker)
+map [c <Action>(VcsShowPrevChangeMarker)
+map ]d <Action>(NextDiff)
+map [d <Action>(PreviousDiff)
+
+
+"" Recent File
+map <leader>rf <Action>(RecentFiles)
+map <leader>rc <Action>(RecentChangedFiles)
+map <leader>rl <Action>(RecentLocations)
 
 "" File
-map <leader>fr <Action>(RecentFiles)
-map <leader>fl <Action>(RecentLocations)
 map <leader>fU <Action>(FindUsages)
 map <leader>fnc <Action>(NewClass)
+map <leader>fs <Action>(Switcher)
+map <leader>fe <Action>(SelectInProjectView)
+map <leader>fm <Action>(ShowNavBar)
 
 "" Search
 map <leader>se <Action>(SearchEverywhere)
+map <leader>/ <Action>(TextSearchAction)
+map <leader>sc <Action>(GotoClass)
+map <leader>ss <Action>(GotoSymbol)
+map <leader>sf <Action>(GotoFile)
+map <leader>su <Action>(GotoUrlAction)
 
 ""Window
 map <leader>wh <Action>(HideActiveWindow)
@@ -71,9 +91,17 @@ map <leader>ww <Action>(NextSplitter)
 map <leader>wp <Action>(PreviousEditorTab)
 
 ""Git related
-map <leader><leader>gb <Action>(Annotate)
+map <leader><leader>a <Action>(Annotate)
+map <leader><leader>gb <Action>(Git.Branches)
 map <leader><leader>ga <Action>(Git.Add)
 map <leader><leader>gp <Action>(Vcs.Push)
+map <leader><leader>gf <Action>(Vcs.Push.Force)
+map <leader><leader>gu <Action>(Vcs.UpdateProject)
+map <leader><leader>gc <Action>(ActivateCommitToolWindow)
+
+""Easymotion
+Plug 'easymotion/vim-easymotion'
+map <S-f> <Plug>(easymotion-f)
 
 ""Test
 map <leader>tr <Action>(RunClass)
@@ -82,4 +110,10 @@ map <leader>tr <Action>(RunClass)
 map <leader>dr <Action>(DebugClass)
 map <leader>db <Action>(ToggleLineBreakpoint)
 
+
+map <leader>hc <Action>(CallHierarchy)
+map <leader>hm <Action>(MethodHierarchy)
+map <leader>ht <Action>(TypeHierarchy)
+
 map <leader><leader>sv <Action>(IdeaVim.ReloadVimRc.reload)
+map <leader><leader>et <Action>(Unscramble)
