@@ -1,10 +1,10 @@
 let mapleader=" "
 set clipboard+=unnamed
 set which-key
-set timeoutlen=5000
+set timeoutlen=4000
 set ignorecase smartcase
 set showmode
-set scrolloff=5
+set scrolloff=10
 set history=1000
 set surround
 set incsearch
@@ -14,12 +14,17 @@ set easymotion
 set NERDTree
 set sneak
 
+imap jj	<Esc>
+
+"" highlight yank
+Plug 'machakann/vim-highlightedyank'
+
 "" Goto
-map gs <Action>("GotoSuperMethod")
-map gT <Action>(GotoTypeDeclaration)
-map gr <Action>(GotoRelated)
-map gt <Action>(GotoTest)
-map gI <Action>(GotoImplementation)
+nmap gs <Action>(GotoSuperMethod)
+nmap gT <Action>(GotoTypeDeclaration)
+nmap gr <Action>(GotoRelated)
+nmap gt <Action>(GotoTest)
+nmap gI <Action>(GotoImplementation)
 
 
 "" Code related
@@ -30,6 +35,7 @@ map <leader>gsa <Action>(SurroundWith)
 
 "" Paste
 map <S-p> <Action>(PasteMultiple)
+
 "" Generate
 map <leader>go <Action>(Generate)
 map <leader>gg <Action>(GenerateGetter)
@@ -63,17 +69,17 @@ map ]c <Action>(VcsShowNextChangeMarker)
 map [c <Action>(VcsShowPrevChangeMarker)
 map ]d <Action>(NextDiff)
 map [d <Action>(PreviousDiff)
+nmap [[ <Action>(Back)
+nmap ]] <Action>(Forward)
 
-
-"" Recent File
-map <leader>rf <Action>(RecentFiles)
-map <leader>rc <Action>(RecentChangedFiles)
+"" Recent location
 map <leader>rl <Action>(RecentLocations)
 
 "" File
 map <leader>fU <Action>(FindUsages)
 map <leader>fnc <Action>(NewClass)
-map <leader>fs <Action>(Switcher)
+map <leader>fr <Action>(RecentFiles)
+map <leader>fc <Action>(RecentChangedFiles)
 map <leader>fe <Action>(SelectInProjectView)
 map <leader>fm <Action>(ShowNavBar)
 
@@ -85,11 +91,6 @@ map <leader>ss <Action>(GotoSymbol)
 map <leader>sf <Action>(GotoFile)
 map <leader>su <Action>(GotoUrlAction)
 
-""Window
-map <leader>wh <Action>(HideActiveWindow)
-map <leader>ww <Action>(NextSplitter)
-map <leader>wp <Action>(PreviousEditorTab)
-
 ""Git related
 map <leader><leader>a <Action>(Annotate)
 map <leader><leader>gb <Action>(Git.Branches)
@@ -99,9 +100,19 @@ map <leader><leader>gf <Action>(Vcs.Push.Force)
 map <leader><leader>gu <Action>(Vcs.UpdateProject)
 map <leader><leader>gc <Action>(ActivateCommitToolWindow)
 
+" Window splits
+map <leader>wh <Action>(HideActiveWindow)
+map <leader>ww <Action>(NextSplitter)
+map <leader>wv <Action>(SplitVertically)
+map <leader>ws <Action>(SplitHorizontally)
+map <leader>wu <Action>(Unsplit)
+map <leader>wm <Action>(MoveEditorToOppositeTabGroup)
+
 ""Easymotion
 Plug 'easymotion/vim-easymotion'
 map <S-f> <Plug>(easymotion-f)
+map <S-w> <Plug>(easymotion-w)
+map <S-s> <Plug>(easymotion-s)
 
 ""Test
 map <leader>tr <Action>(RunClass)
