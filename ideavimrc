@@ -82,6 +82,9 @@ map <leader>fr <Action>(RecentFiles)
 map <leader>fc <Action>(RecentChangedFiles)
 map <leader>fe <Action>(SelectInProjectView)
 map <leader>fm <Action>(ShowNavBar)
+map <leader>fnf <Action>(NewFile)
+map <leader>fnd <Action>(NewDir)
+map <leader>fo <Action>(OpenFile)
 
 "" Search
 map <leader>se <Action>(SearchEverywhere)
@@ -93,12 +96,15 @@ map <leader>su <Action>(GotoUrlAction)
 
 ""Git related
 map <leader><leader>a <Action>(Annotate)
-map <leader><leader>gb <Action>(Git.Branches)
 map <leader><leader>ga <Action>(Git.Add)
 map <leader><leader>gp <Action>(Vcs.Push)
 map <leader><leader>gf <Action>(Vcs.Push.Force)
 map <leader><leader>gu <Action>(Vcs.UpdateProject)
 map <leader><leader>gc <Action>(ActivateCommitToolWindow)
+
+"" Git branches
+map <leader><leader>gbl <Action>(Git.Branches)
+map <leader><leader>gbn <Action>(Git.CreateNewBranch)
 
 " Window splits
 map <leader>wh <Action>(HideActiveWindow)
@@ -110,9 +116,9 @@ map <leader>wm <Action>(MoveEditorToOppositeTabGroup)
 
 ""Easymotion
 Plug 'easymotion/vim-easymotion'
-map <S-f> <Plug>(easymotion-f)
-map <S-w> <Plug>(easymotion-w)
-map <S-s> <Plug>(easymotion-s)
+map <leader><leader>f <Plug>(easymotion-f)
+map <leader><leader>w <Plug>(easymotion-w)
+map <leader><leader>s <Plug>(easymotion-s)
 
 ""Test
 map <leader>tr <Action>(RunClass)
@@ -120,6 +126,7 @@ map <leader>tr <Action>(RunClass)
 ""Debug
 map <leader>dr <Action>(DebugClass)
 map <leader>db <Action>(ToggleLineBreakpoint)
+map <leader>dc <Action>(Resume)
 
 
 map <leader>hc <Action>(CallHierarchy)
