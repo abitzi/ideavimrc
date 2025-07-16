@@ -10,7 +10,6 @@ set surround
 set incsearch
 set relativenumber
 set number
-set easymotion
 set NERDTree
 set sneak
 
@@ -26,15 +25,16 @@ nmap gr <Action>(GotoRelated)
 nmap gt <Action>(GotoTest)
 nmap gI <Action>(GotoImplementation)
 
-
 "" Code related
 map <leader>cr <Action>(RenameElement)
 map <leader>ca <Action>(ShowIntentionActions)
 map <leader>cf <Action>(ReformatCode)
 map <leader>gsa <Action>(SurroundWith)
 
+map <leader><leader><leader>r <Action>(Refactorings.QuickListPopupAction)
+
 "" Paste
-map <S-p> <Action>(PasteMultiple)
+map <leader>p <Action>(PasteMultiple)
 
 "" Generate
 map <leader>go <Action>(Generate)
@@ -72,8 +72,9 @@ map [d <Action>(PreviousDiff)
 nmap [[ <Action>(Back)
 nmap ]] <Action>(Forward)
 
-"" Recent location
-map <leader>rl <Action>(RecentLocations)
+"" Replace location
+map <leader>rf <Action>(Replace)
+map <leader>rp <Action>(ReplaceInPath)
 
 "" File
 map <leader>fU <Action>(FindUsages)
@@ -82,23 +83,37 @@ map <leader>fr <Action>(RecentFiles)
 map <leader>fc <Action>(RecentChangedFiles)
 map <leader>fe <Action>(SelectInProjectView)
 map <leader>fm <Action>(ShowNavBar)
+map <leader>fnf <Action>(NewFile)
+map <leader>fnd <Action>(NewDir)
+map <leader>fo <Action>(OpenFile)
 
 "" Search
-map <leader>se <Action>(SearchEverywhere)
-map <leader>/ <Action>(TextSearchAction)
+map <leader>/ <Action>(SearchEverywhere)
+map <leader>st <Action>(TextSearchAction)
 map <leader>sc <Action>(GotoClass)
 map <leader>ss <Action>(GotoSymbol)
 map <leader>sf <Action>(GotoFile)
 map <leader>su <Action>(GotoUrlAction)
 
 ""Git related
-map <leader><leader>a <Action>(Annotate)
-map <leader><leader>gb <Action>(Git.Branches)
-map <leader><leader>ga <Action>(Git.Add)
+map <leader><leader>ga <Action>(Annotate)
+map <leader><leader>gs <Action>(Git.Add)
 map <leader><leader>gp <Action>(Vcs.Push)
 map <leader><leader>gf <Action>(Vcs.Push.Force)
 map <leader><leader>gu <Action>(Vcs.UpdateProject)
 map <leader><leader>gc <Action>(ActivateCommitToolWindow)
+map <leader><leader>gw <Action>(ActivateVersionControlToolWindow)
+map <leader><leader>gh <Action>(Vcs.ShowTabbedFileHistory)
+map <leader><leader>glh <Action>(LocalHistory.ShowHistory)
+
+"" Git branches
+map <leader><leader>gbl <Action>(Git.Branches)
+map <leader><leader>gbn <Action>(Git.CreateNewBranch)
+
+"" Git Pull request
+map <leader><leader>prs <Action>(Github.PullRequest.Review.Submit)
+map <leader><leader>prc <Action>(Code.Review.Editor.New.Comment)
+map <leader><leader>prl <Action>(Github.Pull.Request.Show.In.Toolwindow)
 
 " Window splits
 map <leader>wh <Action>(HideActiveWindow)
@@ -108,23 +123,24 @@ map <leader>ws <Action>(SplitHorizontally)
 map <leader>wu <Action>(Unsplit)
 map <leader>wm <Action>(MoveEditorToOppositeTabGroup)
 
-""Easymotion
-Plug 'easymotion/vim-easymotion'
-map <S-f> <Plug>(easymotion-f)
-map <S-w> <Plug>(easymotion-w)
-map <S-s> <Plug>(easymotion-s)
-
 ""Test
 map <leader>tr <Action>(RunClass)
 
 ""Debug
 map <leader>dr <Action>(DebugClass)
 map <leader>db <Action>(ToggleLineBreakpoint)
+map <leader>dc <Action>(Resume)
+map <leader>di <Action>(StepInto)
+map <leader>dn <Action>(StepOver)
 
 
+""Hierarchy
 map <leader>hc <Action>(CallHierarchy)
 map <leader>hm <Action>(MethodHierarchy)
 map <leader>ht <Action>(TypeHierarchy)
 
-map <leader><leader>sv <Action>(IdeaVim.ReloadVimRc.reload)
 map <leader><leader>et <Action>(Unscramble)
+map <leader><leader>nsf <Action>(NewScratchFile)
+
+map <leader><leader>crc <Action>(CreateRunConfiguration)
+
