@@ -1,7 +1,7 @@
 let mapleader=" "
 set clipboard+=unnamed
 set which-key
-set timeoutlen=4000
+set timeoutlen=5000
 set ignorecase smartcase
 set showmode
 set scrolloff=10
@@ -18,129 +18,324 @@ imap jj	<Esc>
 "" highlight yank
 Plug 'machakann/vim-highlightedyank'
 
+""""""""""Editor
 "" Goto
+let g:WhichKeyDesc_go_to  = "g Goto"
+
+let g:WhichKeyDesc_go_to_super_method  = "gs Super Method"
 nmap gs <Action>(GotoSuperMethod)
+
+let g:WhichKeyDesc_go_to_type_declaration = "gT Type Declaration"
 nmap gT <Action>(GotoTypeDeclaration)
+
+let g:WhichKeyDesc_go_to_related = "gr Related"
 nmap gr <Action>(GotoRelated)
+
+let g:WhichKeyDesc_go_to_test = "gt Test"
 nmap gt <Action>(GotoTest)
-nmap gI <Action>(GotoImplementation)
 
-"" Code related
-map <leader>cr <Action>(RenameElement)
-map <leader>ca <Action>(ShowIntentionActions)
-map <leader>cf <Action>(ReformatCode)
-map <leader>gsa <Action>(SurroundWith)
+let g:WhichKeyDesc_go_to_implementation = "<gi Implementation"
+nmap gi <Action>(GotoImplementation)
 
-map <leader><leader><leader>r <Action>(Refactorings.QuickListPopupAction)
-
-"" Paste
-map <leader>p <Action>(PasteMultiple)
-
-"" Generate
-map <leader>go <Action>(Generate)
-map <leader>gg <Action>(GenerateGetter)
-map <leader>gs <Action>(GenerateSetter)
-
-"Extract
-map <leader>xc <Action>(ExtractClass)
-map <leader>xm <Action>(ExtractMethod)
-map <leader>xv <Action>(IntroduceVariable)
+let g:WhichKeyDesc_go_to_declaration= "gd Declaration"
+nmap gd <Action>(GotoDeclaration)
 
 "" Fold
+let g:WhichKeyDesc_fold= "z Fold"
+
+let g:WhichKeyDesc_fold_all= "zm Collapse All"
 map zm <Action>(CollapseAllRegions)
+
+let g:WhichKeyDesc_fold_collapse_block= "zc Collapse Block"
 map zc <Action>(CollapseBlock)
+
+let g:WhichKeyDesc_fold_expand_level1= "zo Expand Level 1"
 map zo <Action>(ExpandAllToLevel1)
 
-""Buffer
-map <leader>bd <Action>(CloseContent)
-map <leader>bo <Action>(CloseAllEditorsButActive)
-map <leader>bD <Action>($Delete)
-
 "" Navigation
+let g:WhichKeyDesc_navigation_previous_tab= "<S-h> Previous Tab"
 map <S-h> <Action>(PreviousTab)
+
+let g:WhichKeyDesc_navigation_next_tab= "<S-l> Next Tab"
 map <S-l> <Action>(NextTab)
 
-"" Next
+""Jump
+let g:WhichKeyDesc_jump_next= "] Next"
+let g:WhichKeyDesc_jump_previous= "[ Previous"
+
+let g:WhichKeyDesc_jump_next_error= "]e Next Error"
 map ]e <Action>(GotoNextError)
+
+let g:WhichKeyDesc_jump_previous_error= "[e Previous Error"
 map [e <Action>(GotoPreviousError)
+
+let g:WhichKeyDesc_jump_next_method= "]m Next Method"
 map ]m <Action>(MethodDown)
+
+let g:WhichKeyDesc_jump_previous_method= "[m Previous Method"
 map [m <Action>(MethodUp)
+
+let g:WhichKeyDesc_jump_next_git_change= "]c Next Git Change"
 map ]c <Action>(VcsShowNextChangeMarker)
+
+let g:WhichKeyDesc_jump_previous_git_change= "[c Previous Git Change"
 map [c <Action>(VcsShowPrevChangeMarker)
+
+let g:WhichKeyDesc_jump_next_diff_change= "]d Next Diff"
 map ]d <Action>(NextDiff)
+
+let g:WhichKeyDesc_jump_previous_diff_change= "[d Previous Diff"
 map [d <Action>(PreviousDiff)
+
+let g:WhichKeyDesc_jump_previous_location= "[[ Previous Location"
 nmap [[ <Action>(Back)
+
+let g:WhichKeyDesc_jump_next_location= "]] Next Location"
 nmap ]] <Action>(Forward)
 
-"" Replace location
-map <leader>rf <Action>(Replace)
-map <leader>rp <Action>(ReplaceInPath)
+""""""""""No Leader
 
-"" File
+""""""""""Leader
+"" Code related
+let g:WhichKeyDesc_code_editor= "<Space>c Code Editor"
+
+let g:WhichKeyDesc_code_editor_rename= "<Space>cr Rename Element"
+map <leader>cr <Action>(RenameElement)
+
+let g:WhichKeyDesc_code_editor_show_actions= "<Space>cr Show Actions"
+map <leader>ca <Action>(ShowIntentionActions)
+
+let g:WhichKeyDesc_code_editor_reformat= "<Space>cr Reformat"
+map <leader>cf <Action>(ReformatCode)
+
+let g:WhichKeyDesc_code_editor_surround_with= "<Space>cr Surround with"
+map <leader>cs <Action>(SurroundWith)
+
+let g:WhichKeyDesc_code_editor_refactor_list= "<Space>cR Show Refactorings"
+map <leader>cR <Action>(Refactorings.QuickListPopupAction)
+
+"" Paste
+let g:WhichKeyDesc_paste_multiple= "<Space>P Show Pastes"
+map <leader>P <Action>(PasteMultiple)
+
+"" Generate
+let g:WhichKeyDesc_generate= "<Space>G Generate"
+
+let g:WhichKeyDesc_generate_show_list= "<Space>Gl Show List"
+map <leader>Gl <Action>(Generate)
+
+let g:WhichKeyDesc_generate_Getter= "<Space>Gg Getter"
+map <leader>Gg <Action>(GenerateGetter)
+
+let g:WhichKeyDesc_generate_Setter= "<Space>Gs Setter"
+map <leader>Gs <Action>(GenerateSetter)
+
+"Extract
+let g:WhichKeyDesc_extract= "<Space>x Extract"
+
+let g:WhichKeyDesc_extract_class= "<Space>xc Class"
+map <leader>xc Action>(ExtractClass)
+
+let g:WhichKeyDesc_extract_method= "<Space>xm Method"
+map <leader>xm <Action>(ExtractMethod)
+
+let g:WhichKeyDesc_extract_variable= "<Space>xv Variable"
+map <leader>xv <Action>(IntroduceVariable)
+
+""Buffer
+let g:WhichKeyDesc_buffer= "<Space>b Buffer"
+
+let g:WhichKeyDesc_buffer_close_content= "<Space>bd Close"
+map <leader>bd <Action>(CloseContent)
+
+let g:WhichKeyDesc_buffer_close_other= "<Space>bo Close Other"
+map <leader>bo <Action>(CloseAllEditorsButActive)
+
+"" Replace location
+let g:WhichKeyDesc_replace= "<Space>R Replace"
+
+let g:WhichKeyDesc_replace_in_file= "<Space>Rf In File"
+map <leader>Rf <Action>(Replace)
+
+let g:WhichKeyDesc_replace_in_path= "<Space>Rp In Path"
+map <leader>Rp <Action>(ReplaceInPath)
+
+""Files
+let g:WhichKeyDesc_file= "<Space>f File"
+
+let g:WhichKeyDesc_file_find_usages= "<Space>fU Find Usages"
 map <leader>fU <Action>(FindUsages)
+
+let g:WhichKeyDesc_file_new= "<Space>fn New"
+
+let g:WhichKeyDesc_file_new_class= "<Space>fnc Class"
 map <leader>fnc <Action>(NewClass)
+
+let g:WhichKeyDesc_file_recent= "<Space>fr Recent Files"
 map <leader>fr <Action>(RecentFiles)
+
+let g:WhichKeyDesc_file_recent_changed= "<Space>fc Recent Changed"
 map <leader>fc <Action>(RecentChangedFiles)
+
+let g:WhichKeyDesc_file_select_in_tree= "<Space>fe in Tree"
 map <leader>fe <Action>(SelectInProjectView)
+
+let g:WhichKeyDesc_file_select_in_nav= "<Space>fm Show in Navigation Bar"
 map <leader>fm <Action>(ShowNavBar)
+
+let g:WhichKeyDesc_file_new_file= "<Space>fnf File"
 map <leader>fnf <Action>(NewFile)
+
+let g:WhichKeyDesc_file_new_dir= "<Space>fnd File"
 map <leader>fnd <Action>(NewDir)
+
+let g:WhichKeyDesc_file_open= "<Space>fo Open"
 map <leader>fo <Action>(OpenFile)
 
 "" Search
+let g:WhichKeyDesc_search_everywhere= "<Space>/ Search Everywhere"
 map <leader>/ <Action>(SearchEverywhere)
+
+let g:WhichKeyDesc_search= "<Space>s Search"
+
+let g:WhichKeyDesc_search_text= "<Space>st Text"
 map <leader>st <Action>(TextSearchAction)
+
+let g:WhichKeyDesc_search_class= "<Space>sc Class"
 map <leader>sc <Action>(GotoClass)
+
+let g:WhichKeyDesc_search_symbol= "<Space>ss Symbol"
 map <leader>ss <Action>(GotoSymbol)
+
+let g:WhichKeyDesc_search_file= "<Space>sf File"
 map <leader>sf <Action>(GotoFile)
+
+let g:WhichKeyDesc_search_url= "<Space>su url"
 map <leader>su <Action>(GotoUrlAction)
 
 ""Git related
-map <leader><leader>ga <Action>(Annotate)
-map <leader><leader>gs <Action>(Git.Add)
-map <leader><leader>gp <Action>(Vcs.Push)
-map <leader><leader>gf <Action>(Vcs.Push.Force)
-map <leader><leader>gu <Action>(Vcs.UpdateProject)
-map <leader><leader>gc <Action>(ActivateCommitToolWindow)
-map <leader><leader>gw <Action>(ActivateVersionControlToolWindow)
-map <leader><leader>gh <Action>(Vcs.ShowTabbedFileHistory)
-map <leader><leader>glh <Action>(LocalHistory.ShowHistory)
+let g:WhichKeyDesc_git= "<Space>g Git"
+
+let g:WhichKeyDesc_git_annotate= "<Space>gB Blame"
+map <leader>gB <Action>(Annotate)
+
+let g:WhichKeyDesc_git_add_staging= "<Space>gB Add"
+map <leader>ga <Action>(Git.Add)
+
+let g:WhichKeyDesc_git_push= "<Space>gp Push"
+map <leader>gp <Action>(Vcs.Push)
+
+let g:WhichKeyDesc_git_force= "<Space>gf Push Force"
+map <leader>gf <Action>(Vcs.Push.Force)
+
+let g:WhichKeyDesc_git_pull= "<Space>gu Pull"
+map <leader>gu <Action>(Vcs.UpdateProject)
+
+let g:WhichKeyDesc_git_show_commit= "<Space>gc Commit"
+map <leader>gc <Action>(ActivateCommitToolWindow)
+
+let g:WhichKeyDesc_git_show_version_control= "<Space>gw Window"
+map <leader>gw <Action>(ActivateVersionControlToolWindow)
+
+let g:WhichKeyDesc_git_show_version_history= "<Space>gh"
+map <leader>gh <Action>(Vcs.ShowTabbedFileHistory)
+
+let g:WhichKeyDesc_git_local_history= "<Space>gl Local History"
+map <leader>gl <Action>(LocalHistory.ShowHistory)
 
 "" Git branches
-map <leader><leader>gbl <Action>(Git.Branches)
-map <leader><leader>gbn <Action>(Git.CreateNewBranch)
+let g:WhichKeyDesc_git_branches= "<Space>gb Branch"
 
-"" Git Pull request
-map <leader><leader>prs <Action>(Github.PullRequest.Review.Submit)
-map <leader><leader>prc <Action>(Code.Review.Editor.New.Comment)
-map <leader><leader>prl <Action>(Github.Pull.Request.Show.In.Toolwindow)
+let g:WhichKeyDesc_git_branches_list= "<Space>gbl List"
+map <leader>gbl <Action>(Git.Branches)
+
+let g:WhichKeyDesc_git_branches_new= "<Space>gbn New"
+map <leader>gbn <Action>(Git.CreateNewBranch)
+
 
 " Window splits
+let g:WhichKeyDesc_windows= "<Space>w Splits"
+
+let g:WhichKeyDesc_windows_hide= "<Space>wh Hide Active"
 map <leader>wh <Action>(HideActiveWindow)
+
+let g:WhichKeyDesc_windows_next= "<Space>ww Next Splitter"
 map <leader>ww <Action>(NextSplitter)
+
+let g:WhichKeyDesc_windows_sv= "<Space>wv Split Vertically"
 map <leader>wv <Action>(SplitVertically)
+
+let g:WhichKeyDesc_windows_sh= "<Space>ws Split Horizontally"
 map <leader>ws <Action>(SplitHorizontally)
+
+let g:WhichKeyDesc_windows_unsplit= "<Space>wu Split Unsplit"
 map <leader>wu <Action>(Unsplit)
+
+let g:WhichKeyDesc_windows_opposite= "<Space>wm Opposite"
 map <leader>wm <Action>(MoveEditorToOppositeTabGroup)
 
-""Test
-map <leader>tr <Action>(RunClass)
+""Todo
+let g:WhichKeyDesc_run= "<Space>r Run"
+
+let g:WhichKeyDesc_run_class= "<Space>rc Run Class"
+map <leader>rc <Action>(RunClass)
 
 ""Debug
+let g:WhichKeyDesc_debug= "<Space>d Debug"
+
+let g:WhichKeyDesc_debug_run= "<Space>dr Run"
 map <leader>dr <Action>(DebugClass)
+
+let g:WhichKeyDesc_debug_toggle_breakpoint= "<Space>db Toggle Breakpoint"
 map <leader>db <Action>(ToggleLineBreakpoint)
+
+let g:WhichKeyDesc_debug_start_continue= "<Space>dc Start/Continue"
 map <leader>dc <Action>(Resume)
+
+let g:WhichKeyDesc_debug_step_into= "<Space>di Step Into"
 map <leader>di <Action>(StepInto)
+
+let g:WhichKeyDesc_debug_step_over= "<Space>do Step Over"
 map <leader>dn <Action>(StepOver)
 
 
 ""Hierarchy
-map <leader>hc <Action>(CallHierarchy)
-map <leader>hm <Action>(MethodHierarchy)
-map <leader>ht <Action>(TypeHierarchy)
+let g:WhichKeyDesc_hierarchy= "<Space>H Hierarchy"
 
-map <leader><leader>et <Action>(Unscramble)
-map <leader><leader>nsf <Action>(NewScratchFile)
+let g:WhichKeyDesc_hierarchy_call= "<Space>Hc Call"
+map <leader>Hc <Action>(CallHierarchy)
 
-map <leader><leader>crc <Action>(CreateRunConfiguration)
+let g:WhichKeyDesc_hierarchy_method= "<Space>Hm Method"
+map <leader>Hm <Action>(MethodHierarchy)
+
+let g:WhichKeyDesc_hierarchy_type= "<Space>Ht Type"
+map <leader>Ht <Action>(TypeHierarchy)
+
+""""""""""Leader
+
+"""""""""""Leader Leader
+let g:WhichKeyDesc_git_leader_leader_menu= "<Space> PRs, Exception Nav, Run Config, New Scratch File"
+
+"" Git Pull request
+
+let g:WhichKeyDesc_git_pull_request= "<Space><Space>p Pull Requests"
+
+let g:WhichKeyDesc_git_pull_request_submit= "<Space><Space>ps Submit Review"
+map <leader><leader>ps <Action>(Github.PullRequest.Review.Submit)
+
+let g:WhichKeyDesc_git_pull_request_comment= "<Space><Space>pc Add Comment"
+map <leader><leader>pc <Action>(Code.Review.Editor.New.Comment)
+
+let g:WhichKeyDesc_git_pull_request_list= "<Space><Space>pl Show"
+map <leader><leader>pl <Action>(ActivatePullRequestsToolWindow)
+
+
+let g:WhichKeyDesc_exception_paste= "<Space><Space>e Exception"
+map <leader><leader>e <Action>(Unscramble)
+
+let g:WhichKeyDesc_exception_new_scratch_file= "<Space><Space>f New Scratch File"
+map <leader><leader>f <Action>(NewScratchFile)
+
+let g:WhichKeyDesc_run_config_create= "<Space><Space>c Create Run Configuration"
+map <leader><leader>c <Action>(CreateRunConfiguration)
 
