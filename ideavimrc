@@ -1,7 +1,7 @@
 let mapleader=" "
 set clipboard+=unnamed
 set which-key
-set timeoutlen=5000
+set timeoutlen=10000
 set ignorecase smartcase
 set showmode
 set scrolloff=10
@@ -13,6 +13,9 @@ set number
 set NERDTree
 set sneak
 
+let g:WhichKey_ShowVimActions = "true"
+let g:WhichKey_FontSize=13
+let g:WhichKey_KeyColor="white"
 imap jj	<Esc>
 
 "" highlight yank
@@ -102,14 +105,14 @@ let g:WhichKeyDesc_code_editor= "<Space>c Code Editor"
 let g:WhichKeyDesc_code_editor_rename= "<Space>cr Rename Element"
 map <leader>cr <Action>(RenameElement)
 
-let g:WhichKeyDesc_code_editor_show_actions= "<Space>cr Show Actions"
+let g:WhichKeyDesc_code_editor_show_actions= "<Space>ca Show Actions"
 map <leader>ca <Action>(ShowIntentionActions)
 
-let g:WhichKeyDesc_code_editor_reformat= "<Space>cr Reformat"
+let g:WhichKeyDesc_code_editor_reformat= "<Space>cf Reformat"
 map <leader>cf <Action>(ReformatCode)
 
 let g:WhichKeyDesc_code_editor_surround_with= "<Space>cr Surround with"
-map <leader>cs <Action>(SurroundWith)
+map <leader>cr <Action>(SurroundWith)
 
 let g:WhichKeyDesc_code_editor_refactor_list= "<Space>cR Show Refactorings"
 map <leader>cR <Action>(Refactorings.QuickListPopupAction)
@@ -210,7 +213,7 @@ map <leader>ss <Action>(GotoSymbol)
 let g:WhichKeyDesc_search_file= "<Space>sf File"
 map <leader>sf <Action>(GotoFile)
 
-let g:WhichKeyDesc_search_url= "<Space>su url"
+let g:WhichKeyDesc_search_url= "<Space>su URL"
 map <leader>su <Action>(GotoUrlAction)
 
 ""Git related
@@ -219,7 +222,7 @@ let g:WhichKeyDesc_git= "<Space>g Git"
 let g:WhichKeyDesc_git_annotate= "<Space>gB Blame"
 map <leader>gB <Action>(Annotate)
 
-let g:WhichKeyDesc_git_add_staging= "<Space>gB Add"
+let g:WhichKeyDesc_git_add_staging= "<Space>ga Add"
 map <leader>ga <Action>(Git.Add)
 
 let g:WhichKeyDesc_git_push= "<Space>gp Push"
@@ -268,7 +271,7 @@ map <leader>wv <Action>(SplitVertically)
 let g:WhichKeyDesc_windows_sh= "<Space>ws Split Horizontally"
 map <leader>ws <Action>(SplitHorizontally)
 
-let g:WhichKeyDesc_windows_unsplit= "<Space>wu Split Unsplit"
+let g:WhichKeyDesc_windows_unsplit= "<Space>wu Unsplit Split"
 map <leader>wu <Action>(Unsplit)
 
 let g:WhichKeyDesc_windows_opposite= "<Space>wm Opposite"
@@ -329,12 +332,16 @@ map <leader><leader>pc <Action>(Code.Review.Editor.New.Comment)
 let g:WhichKeyDesc_git_pull_request_list= "<Space><Space>pl Show"
 map <leader><leader>pl <Action>(ActivatePullRequestsToolWindow)
 
-
 let g:WhichKeyDesc_exception_paste= "<Space><Space>e Exception"
 map <leader><leader>e <Action>(Unscramble)
 
-let g:WhichKeyDesc_exception_new_scratch_file= "<Space><Space>f New Scratch File"
-map <leader><leader>f <Action>(NewScratchFile)
+let g:WhichKeyDesc_exception_scratch_files= "<Space><Space>f Scratch Files"
+
+let g:WhichKeyDesc_exception_new_scratch_file= "<Space><Space>fn New"
+map <leader><leader>fn <Action>(NewScratchFile)
+
+let g:WhichKeyDesc_exception_new_scratch_list= "<Space><Space>fl Show"
+map <leader><leader>fl <Action>(Scratch.ShowFilesPopup)
 
 let g:WhichKeyDesc_run_config_create= "<Space><Space>c Create Run Configuration"
 map <leader><leader>c <Action>(CreateRunConfiguration)
