@@ -4,7 +4,7 @@ set which-key
 set timeoutlen=10000
 set ignorecase smartcase
 set showmode
-set scrolloff=10
+set scrolloff=15
 set history=1000
 set surround
 set incsearch
@@ -12,11 +12,20 @@ set relativenumber
 set number
 set NERDTree
 set sneak
+set visualbell
+set easymotion
 
 let g:WhichKey_ShowVimActions = "true"
 let g:WhichKey_FontSize=13
 let g:WhichKey_KeyColor="white"
 imap jj	<Esc>
+
+""Easy motion
+let g:WhichKeyDesc_easy_motion_f  = "/f Find"
+nmap /f <Plug>(easymotion-bd-f)
+
+let g:WhichKeyDesc_easy_motion_t  = "/t To"
+nmap /t <Plug>(easymotion-t)
 
 "" highlight yank
 Plug 'machakann/vim-highlightedyank'
@@ -196,8 +205,8 @@ let g:WhichKeyDesc_file_open= "<Space>fo Open"
 map <leader>fo <Action>(OpenFile)
 
 "" Search
-let g:WhichKeyDesc_search_everywhere= "<Space>/ Search Everywhere"
-map <leader>/ <Action>(SearchEverywhere)
+let g:WhichKeyDesc_search_everywhere= "// Search Everywhere"
+map // <Action>(SearchEverywhere)
 
 let g:WhichKeyDesc_search= "<Space>s Search"
 
