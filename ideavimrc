@@ -21,11 +21,8 @@ let g:WhichKey_KeyColor="white"
 imap jj	<Esc>
 
 ""Easy motion
-let g:WhichKeyDesc_easy_motion_f  = "/f Find"
-nmap /f <Plug>(easymotion-bd-f)
-
-let g:WhichKeyDesc_easy_motion_t  = "/t To"
-nmap /t <Plug>(easymotion-t)
+let g:WhichKeyDesc_easy_motion_f  = "<Space>/ Find"
+nmap <leader>/ <Plug>(easymotion-bd-f)
 
 "" highlight yank
 Plug 'machakann/vim-highlightedyank'
@@ -120,8 +117,8 @@ map <leader>ca <Action>(ShowIntentionActions)
 let g:WhichKeyDesc_code_editor_reformat= "<Space>cf Reformat"
 map <leader>cf <Action>(ReformatCode)
 
-let g:WhichKeyDesc_code_editor_surround_with= "<Space>cr Surround with"
-map <leader>cr <Action>(SurroundWith)
+let g:WhichKeyDesc_code_editor_surround_with= "<Space>cs Surround with"
+map <leader>cs <Action>(SurroundWith)
 
 let g:WhichKeyDesc_code_editor_refactor_list= "<Space>cR Show Refactorings"
 map <leader>cR <Action>(Refactorings.QuickListPopupAction)
@@ -240,9 +237,6 @@ map <leader>gp <Action>(Vcs.Push)
 let g:WhichKeyDesc_git_force= "<Space>gf Push Force"
 map <leader>gf <Action>(Vcs.Push.Force)
 
-let g:WhichKeyDesc_git_pull= "<Space>gu Pull"
-map <leader>gu <Action>(Vcs.UpdateProject)
-
 let g:WhichKeyDesc_git_show_commit= "<Space>gc Commit"
 map <leader>gc <Action>(ActivateCommitToolWindow)
 
@@ -263,6 +257,10 @@ map <leader>gbl <Action>(Git.Branches)
 
 let g:WhichKeyDesc_git_branches_new= "<Space>gbn New"
 map <leader>gbn <Action>(Git.CreateNewBranch)
+
+let g:WhichKeyDesc_git_pull= "<Space>gbu Pull"
+map <leader>gbu <Action>(Vcs.UpdateProject)
+
 
 
 " Window splits
