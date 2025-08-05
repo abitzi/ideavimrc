@@ -123,6 +123,9 @@ map <leader>cs <Action>(SurroundWith)
 let g:WhichKeyDesc_code_editor_refactor_list= "<Space>cR Show Refactorings"
 map <leader>cR <Action>(Refactorings.QuickListPopupAction)
 
+let g:WhichKeyDesc_code_editor_comment_block= "<Space>cc Comment Block"
+map <leader>cc <Action>(CommentByBlockComment)
+
 "" Paste
 let g:WhichKeyDesc_paste_multiple= "<Space>P Show Pastes"
 map <leader>P <Action>(PasteMultiple)
@@ -201,6 +204,10 @@ map <leader>fnd <Action>(NewDir)
 let g:WhichKeyDesc_file_open= "<Space>fo Open"
 map <leader>fo <Action>(OpenFile)
 
+let g:WhichKeyDesc_file_compare= "<Space>fd Compare Two Files"
+map <leader>fd <Action>(CompareTwoFiles)
+
+
 "" Search
 let g:WhichKeyDesc_search_everywhere= "// Search Everywhere"
 map // <Action>(SearchEverywhere)
@@ -248,6 +255,9 @@ map <leader>gh <Action>(Vcs.ShowTabbedFileHistory)
 
 let g:WhichKeyDesc_git_local_history= "<Space>gl Local History"
 map <leader>gl <Action>(LocalHistory.ShowHistory)
+
+let g:WhichKeyDesc_git_compare_with_branch= "<Space>gd Diff with"
+map <leader>gd <Action>(Git.CompareWithBranch)
 
 "" Git branches
 let g:WhichKeyDesc_git_branches= "<Space>gb Branch"
