@@ -172,6 +172,15 @@ map <leader>Rf <Action>(Replace)
 let g:WhichKeyDesc_replace_in_path= "<Space>Rp In Path"
 map <leader>Rp <Action>(ReplaceInPath)
 
+""Find
+let g:WhichKeyDesc_find= "<Space>F Find"
+
+let g:WhichKeyDesc_find= "<Space>Ff Find"
+map <leader>Ff <Action>(FindInPath)
+
+
+
+
 ""Files
 let g:WhichKeyDesc_file= "<Space>f File"
 
