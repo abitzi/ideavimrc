@@ -170,14 +170,6 @@ map <leader>Rf <Action>(Replace)
 let g:WhichKeyDesc_replace_in_path= "<Space>Rp In Path"
 map <leader>Rp <Action>(ReplaceInPath)
 
-""Find
-let g:WhichKeyDesc_find= "<Space>F Find"
-
-let g:WhichKeyDesc_find= "<Space>Ff Find"
-map <leader>Ff <Action>(FindInPath)
-
-
-
 
 ""Files
 let g:WhichKeyDesc_file= "<Space>f File"
@@ -201,6 +193,9 @@ map <leader>fe <Action>(SelectInProjectView)
 
 let g:WhichKeyDesc_file_select_in_nav= "<Space>fm Show in Navigation Bar"
 map <leader>fm <Action>(ShowNavBar)
+
+let g:WhichKeyDesc_find_in_path= "<Space>fp in Path"
+map <leader>fp <Action>(FindInPath)
 
 let g:WhichKeyDesc_file_new_file= "<Space>fnf File"
 map <leader>fnf <Action>(NewFile)
