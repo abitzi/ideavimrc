@@ -13,16 +13,11 @@ set number
 set NERDTree
 set sneak
 set visualbell
-set easymotion
 
 let g:WhichKey_ShowVimActions = "true"
 let g:WhichKey_FontSize=13
 let g:WhichKey_KeyColor="white"
 imap jj	<Esc>
-
-""Easy motion
-let g:WhichKeyDesc_easy_motion_f  = "<Space>/ Find"
-nmap <leader>/ <Plug>(easymotion-bd-f)
 
 "" highlight yank
 Plug 'machakann/vim-highlightedyank'
@@ -163,6 +158,9 @@ map <leader>bd <Action>(CloseContent)
 let g:WhichKeyDesc_buffer_close_other= "<Space>bo Close Other"
 map <leader>bo <Action>(CloseAllEditorsButActive)
 
+let g:WhichKeyDesc_buffer_pin= "<Space>bp Pin"
+map <leader>bp <Action>(PinActiveEditorTab)
+
 "" Replace location
 let g:WhichKeyDesc_replace= "<Space>R Replace"
 
@@ -207,7 +205,7 @@ map <leader>fm <Action>(ShowNavBar)
 let g:WhichKeyDesc_file_new_file= "<Space>fnf File"
 map <leader>fnf <Action>(NewFile)
 
-let g:WhichKeyDesc_file_new_dir= "<Space>fnd File"
+let g:WhichKeyDesc_file_new_dir= "<Space>fnd Directory"
 map <leader>fnd <Action>(NewDir)
 
 let g:WhichKeyDesc_file_open= "<Space>fo Open"
@@ -280,6 +278,8 @@ map <leader>gbn <Action>(Git.CreateNewBranch)
 let g:WhichKeyDesc_git_pull= "<Space>gbu Pull"
 map <leader>gbu <Action>(Vcs.UpdateProject)
 
+let g:WhichKeyDesc_git_rebase= "<Space>gbr Rebase"
+map <leader>gbr <Action>(Git.Rebase)
 
 
 " Window splits
@@ -343,7 +343,7 @@ map <leader>Ht <Action>(TypeHierarchy)
 """"""""""Leader
 
 """""""""""Leader Leader
-let g:WhichKeyDesc_git_leader_leader_menu= "<Space> PRs, Exception Nav, Run Config, New Scratch File"
+let g:WhichKeyDesc_git_leader_leader_menu= "<Space> PRs, Exception Nav, Run Config, New Scratch File, Gradle"
 
 "" Git Pull request
 
@@ -372,3 +372,8 @@ map <leader><leader>fl <Action>(Scratch.ShowFilesPopup)
 let g:WhichKeyDesc_run_config_create= "<Space><Space>c Create Run Configuration"
 map <leader><leader>c <Action>(CreateRunConfiguration)
 
+
+let g:WhichKeyDesc_run_gradle= "<Space><Space>g Gradle"
+
+let g:WhichKeyDesc_gradle_sync= "<Space><Space>gs Gradle Sync"
+map <leader><leader>gs <Action>(ExternalSystem.RefreshAllProjects)
