@@ -268,7 +268,7 @@ let g:WhichKeyDesc_git_branches_list= "<Space>gbl List"
 map <leader>gbl <Action>(Git.Branches)
 
 let g:WhichKeyDesc_git_branches_new= "<Space>gbn New"
-map <leader>gbn <Action>(Git.CreateNewBranch)
+map <leader>gbn <Action>(Git.GitCheckoutAsNewBranch)
 
 let g:WhichKeyDesc_git_pull= "<Space>gbu Pull"
 map <leader>gbu <Action>(Vcs.UpdateProject)
