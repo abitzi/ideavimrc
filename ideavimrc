@@ -149,6 +149,10 @@ map <leader>xm <Action>(ExtractMethod)
 let g:WhichKeyDesc_extract_variable= "<Space>xv Variable"
 map <leader>xv <Action>(IntroduceVariable)
 
+let g:WhichKeyDesc_extract_variable= "<Space>xi Inline variable"
+map <leader>xi <Action>(Inline)
+
+
 ""Buffer
 let g:WhichKeyDesc_buffer= "<Space>b Buffer"
 
@@ -173,6 +177,9 @@ map <leader>Rp <Action>(ReplaceInPath)
 
 ""Files
 let g:WhichKeyDesc_file= "<Space>f File"
+
+let g:WhichKeyDesc_file_terminal= "<Space>ft Terminal"
+map <leader>ft <Action>(ActivateTerminalToolWindow)
 
 let g:WhichKeyDesc_file_find_usages= "<Space>fU Find Usages"
 map <leader>fU <Action>(FindUsages)
@@ -344,6 +351,7 @@ let g:WhichKeyDesc_git_leader_leader_menu= "<Space> PRs, Exception Nav, Run Conf
 
 let g:WhichKeyDesc_git_pull_request= "<Space><Space>p Pull Requests"
 
+
 let g:WhichKeyDesc_git_pull_request_submit= "<Space><Space>ps Submit Review"
 map <leader><leader>ps <Action>(Github.PullRequest.Review.Submit)
 
@@ -353,8 +361,10 @@ map <leader><leader>pc <Action>(Code.Review.Editor.New.Comment)
 let g:WhichKeyDesc_git_pull_request_list= "<Space><Space>pl Show"
 map <leader><leader>pl <Action>(ActivatePullRequestsToolWindow)
 
+
 let g:WhichKeyDesc_exception_paste= "<Space><Space>e Exception"
 map <leader><leader>e <Action>(Unscramble)
+
 
 let g:WhichKeyDesc_exception_scratch_files= "<Space><Space>f Scratch Files"
 
@@ -364,11 +374,25 @@ map <leader><leader>fn <Action>(NewScratchFile)
 let g:WhichKeyDesc_exception_new_scratch_list= "<Space><Space>fl Show"
 map <leader><leader>fl <Action>(Scratch.ShowFilesPopup)
 
+
 let g:WhichKeyDesc_run_config_create= "<Space><Space>c Create Run Configuration"
 map <leader><leader>c <Action>(CreateRunConfiguration)
 
 
 let g:WhichKeyDesc_run_gradle= "<Space><Space>g Gradle"
-
 let g:WhichKeyDesc_gradle_sync= "<Space><Space>gs Gradle Sync"
 map <leader><leader>gs <Action>(ExternalSystem.RefreshAllProjects)
+
+
+let g:WhichKeyDesc_databases_menu= "<Space><Space>d Databases"
+
+
+let g:WhichKeyDesc_databases_open_rds= "<Space><Space>ds DB Sql Window"
+map <leader><leader>ds <Action>(ActivateDatabaseToolWindow)
+
+let g:WhichKeyDesc_databases_open_dynamo= "<Space><Space>dn DB NoSql Window"
+map <leader><leader>dn <Action>(ActivateDynamoDBToolWindow)
+
+let g:WhichKeyDesc_ai_tool= "<Space><Space>ai Open AI tool"
+map <leader><leader>ai <Action>(ActivateAugmentToolWindow)
+
