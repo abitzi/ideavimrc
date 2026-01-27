@@ -198,6 +198,9 @@ map <leader>fc <Action>(RecentChangedFiles)
 let g:WhichKeyDesc_file_select_in_tree= "<Space>fe in Tree"
 map <leader>fe <Action>(SelectInProjectView)
 
+let g:WhichKeyDesc_file_select_in_tree= "<Space>fs Show structure of the file"
+map <leader>fs <Action>(ActivateStructureToolWindow)
+
 let g:WhichKeyDesc_file_select_in_nav= "<Space>fm Show in Navigation Bar"
 map <leader>fm <Action>(ShowNavBar)
 
