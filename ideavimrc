@@ -311,6 +311,15 @@ map <leader>wm <Action>(MoveEditorToOppositeTabGroup)
 ""Todo
 let g:WhichKeyDesc_run= "<Space>r Run"
 
+let g:WhichKeyDesc_run_class= "<Space>rl Run List"
+map <leader>rl <Action>(RedesignedRunConfigurationSelector)
+
+let g:WhichKeyDesc_run_class= "<Space>rr Run Config"
+map <leader>rr <Action>(Run)
+
+let g:WhichKeyDesc_run_class= "<Space>rs Stop"
+map <leader>rs <Action>(Stop)
+
 let g:WhichKeyDesc_run_class= "<Space>rc Run Class"
 map <leader>rc <Action>(RunClass)
 
