@@ -103,6 +103,9 @@ nmap ]] <Action>(Forward)
 "" Code related
 let g:WhichKeyDesc_code_editor= "<Space>c Code Editor"
 
+let g:WhichKeyDesc_code_editor_rename= "<Space>cv Introduce Variable"
+map <leader>cv <Action>(IntroduceVariable)
+
 let g:WhichKeyDesc_code_editor_rename= "<Space>cr Rename Element"
 map <leader>cr <Action>(RenameElement)
 
