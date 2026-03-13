@@ -56,6 +56,9 @@ map zc <Action>(CollapseBlock)
 let g:WhichKeyDesc_fold_expand_level1= "zo Expand Level 1"
 map zo <Action>(ExpandAllToLevel1)
 
+let g:WhichKeyDesc_expand_recursively= "zr Expand Recursively"
+map zr <Action>(ExpandRegionRecursively)
+
 "" Navigation
 let g:WhichKeyDesc_navigation_previous_tab= "<S-h> Previous Tab"
 map <S-h> <Action>(PreviousTab)
@@ -360,7 +363,7 @@ map <leader>Ht <Action>(TypeHierarchy)
 """"""""""Leader
 
 """""""""""Leader Leader
-let g:WhichKeyDesc_git_leader_leader_menu= "<Space> PRs, Exception Nav, Run Config, New Scratch File, Gradle"
+let g:WhichKeyDesc_git_leader_leader_menu= "<Space> PRs, Exception Nav, Run Config, New Scratch File, Gradle, CallSaul"
 
 "" Git Pull request
 
@@ -411,3 +414,5 @@ map <leader><leader>dn <Action>(ActivateDynamoDBToolWindow)
 let g:WhichKeyDesc_ai_tool= "<Space><Space>ai Open AI tool"
 map <leader><leader>ai <Action>(ActivateAugmentToolWindow)
 
+let g:WhichKeyDesc_call_saul= "<Space><Space>r Better Call Saul"
+map <leader><leader>r <Action>(CallSaul)
