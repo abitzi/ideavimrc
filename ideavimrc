@@ -412,7 +412,7 @@ let g:WhichKeyDesc_databases_open_dynamo= "<Space><Space>dn DB NoSql Window"
 map <leader><leader>dn <Action>(ActivateDynamoDBToolWindow)
 
 let g:WhichKeyDesc_ai_tool= "<Space><Space>ai Open AI tool"
-map <leader><leader>ai <Action>(ActivateAugmentToolWindow)
+map <leader><leader>ai <Action>(ActivateAIAssistantToolWindow)
 
 let g:WhichKeyDesc_call_saul= "<Space><Space>r Better Call Saul"
 map <leader><leader>r <Action>(CallSaul)
