@@ -256,6 +256,9 @@ map <leader>gB <Action>(Annotate)
 let g:WhichKeyDesc_git_add_staging= "<Space>ga Add"
 map <leader>ga <Action>(Git.Add)
 
+let g:WhichKeyDesc_git_revert_staging= "<Space>gr Revert Changes"
+map <leader>gr <Action>(ChangesView.Revert)
+
 let g:WhichKeyDesc_git_push= "<Space>gp Push"
 map <leader>gp <Action>(Vcs.Push)
 
@@ -285,6 +288,21 @@ map <leader>gbl <Action>(Git.Branches)
 
 let g:WhichKeyDesc_git_branches_new= "<Space>gbn New"
 map <leader>gbn <Action>(Git.CreateNewBranch)
+
+let g:WhichKeyDesc_git_pull= "<Space>gbu Pull"
+map <leader>gbu <Action>(Vcs.UpdateProject)
+
+let g:WhichKeyDesc_git_rebase= "<Space>gbr Rebase"
+map <leader>gbr <Action>(Git.Rebase)
+
+"" Git Worktrees
+let g:WhichKeyDesc_git_worktrees= "<Space>gt Worktrees"
+
+let g:WhichKeyDesc_git_worktrees_list= "<Space>gtl List"
+map <leader>gtl <Action>(Git.Show.WorkingTrees)
+
+let g:WhichKeyDesc_git_worktrees_new= "<Space>gtn New"
+map <leader>gtn <Action>(Git.CreateNewWorkingTree)
 
 let g:WhichKeyDesc_git_pull= "<Space>gbu Pull"
 map <leader>gbu <Action>(Vcs.UpdateProject)
